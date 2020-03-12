@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Characters/Player.gd" type="Script" id=1]
+[ext_resource path="res://Characters/Survivor Spine/images/hand_flashlight.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Survivor Spine/images/forearm.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Survivor Spine/images/torso.png" type="Texture" id=4]
+[ext_resource path="res://Characters/Survivor Spine/images/head.png" type="Texture" id=5]
+[ext_resource path="res://Lights/spot.png" type="Texture" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 87.9451
+
+[node name="Player" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -0.026942, -0.017942 )
+current = true
+zoom = Vector2( 0.8, 0.8 )
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.115174, 0 )
+shape = SubResource( 1 )
+
+[node name="Hand_Right" type="Sprite" parent="."]
+position = Vector2( 52.7855, 67.0311 )
+scale = Vector2( 0.879266, 0.845728 )
+texture = ExtResource( 2 )
+flip_v = true
+
+[node name="ForeArm" type="Sprite" parent="."]
+position = Vector2( 13.5186, 61.0838 )
+rotation = 0.380482
+texture = ExtResource( 3 )
+flip_v = true
+
+[node name="Torso" type="Sprite" parent="."]
+position = Vector2( -4, -2 )
+texture = ExtResource( 4 )
+
+[node name="Head" type="Sprite" parent="."]
+position = Vector2( 10.0933, -1.18549 )
+texture = ExtResource( 5 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 2.76338, -1.1607 )
+scale = Vector2( 3.99469, 4.19453 )
+texture = ExtResource( 6 )
+energy = 0.5
+mode = 2
+shadow_enabled = true
+
+[node name="Flashlight" type="Light2D" parent="."]
+position = Vector2( 73.8631, 66.3745 )
+scale = Vector2( 23.8323, 9.43134 )
+z_index = 1
+texture = ExtResource( 6 )
+offset = Vector2( 37, 0 )
+shadow_enabled = true
+shadow_filter = 5
+shadow_filter_smooth = 16.0
+

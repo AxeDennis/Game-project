@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wood01.wav-f04097065f717ca2344142ba33b9cf45.sample"
+
+[deps]
+
+source_file="res://Sounds/wood01.wav"
+dest_files=[ "res://.import/wood01.wav-f04097065f717ca2344142ba33b9cf45.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Characters/Zombie.gd" type="Script" id=1]
+[ext_resource path="res://Characters/tds_zombie/export/skeleton-attack_5.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 95.0402
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 821.381
+
+[node name="Zombie" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Torso" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Arm_Left" type="Sprite" parent="."]
+position = Vector2( 30.1257, -64.8576 )
+
+[node name="Arm_Right" type="Sprite" parent="."]
+position = Vector2( 31.6306, 72.5069 )
+flip_v = true
+
+[node name="Hand_Left" type="Sprite" parent="."]
+position = Vector2( 113.2, -59.4008 )
+
+[node name="Hand_Right" type="Sprite" parent="."]
+position = Vector2( 117.857, 67.8765 )
+flip_v = true
+
+[node name="ForeArm_Left" type="Sprite" parent="."]
+position = Vector2( 73.6522, -65.0266 )
+
+[node name="ForeArm_Right" type="Sprite" parent="."]
+position = Vector2( 79.4953, 72.5492 )
+flip_v = true
+
+[node name="Head" type="Sprite" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+cast_to = Vector2( 100, 0 )
+
+[node name="DetectRadius" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRadius"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="DetectRadius" to="." method="_on_DetectRadius_body_entered"]
