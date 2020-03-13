@@ -1,24 +1,24 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Assets/Candle.png" type="Texture" id=1]
+[ext_resource path="res://Assets/PNG/Candle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Candle.gd" type="Script" id=2]
 [ext_resource path="res://Lights/light.png" type="Texture" id=3]
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=1]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, 31.68 ), 0.0, 0.0, 0, 0, Vector2( 1, 101.376 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
-
-[sub_resource type="Curve" id=1]
-_data = [ Vector2( 0.00428528, 0.7838 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.3713 ), 0.0, 0.0, 0, 0 ]
-
 [sub_resource type="CurveTexture" id=2]
 curve = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.00428528, 0.7838 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.3713 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 1
 emission_sphere_radius = 5.0
 flag_disable_z = true
@@ -26,9 +26,9 @@ gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 angle_random = 1.0
-angle_curve = SubResource( 5 )
+angle_curve = SubResource( 2 )
 scale = 30.0
-scale_curve = SubResource( 2 )
+scale_curve = SubResource( 4 )
 color = Color( 0.811765, 0.639216, 0.360784, 1 )
 
 [node name="Candle" type="Sprite"]
@@ -52,6 +52,6 @@ autostart = true
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( -2.20726, 0 )
 amount = 15
-process_material = SubResource( 3 )
+process_material = SubResource( 5 )
 
 [connection signal="timeout" from="Light2D/Light_timer" to="." method="_on_Light_timer_timeout"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Objects/Item Scripts/note.gd" type="Script" id=1]
-[ext_resource path="res://Assets/note.png" type="Texture" id=2]
+[ext_resource path="res://Assets/PNG/note.png" type="Texture" id=2]
 [ext_resource path="res://Lights/light.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -33,12 +33,5 @@ scale = Vector2( 1.04377, 1.26808 )
 z_index = 1
 texture = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="."]
-visible = false
-margin_left = -40.1154
-margin_top = -48.4978
-margin_right = 42.8846
-margin_bottom = -34.4978
-text = "Read note (E)"
 [connection signal="body_entered" from="." to="." method="_on_Note_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Note_body_exited"]
