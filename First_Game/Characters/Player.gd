@@ -2,6 +2,8 @@ extends KinematicBody2D
 		
 var BodyInArea
 var Hide
+var key_score
+var search
 var move_speed = 250
 		
 func _ready():
