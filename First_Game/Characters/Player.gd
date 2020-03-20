@@ -1,9 +1,10 @@
 extends KinematicBody2D
 		
-var BodyInArea
-var Hide
-var key_score
-var search
+var BodyInArea = 0
+var Hide = 0
+var key_score = 0
+var door = 0
+var search = 0
 var move_speed = 250
 		
 func _ready():

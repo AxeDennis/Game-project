@@ -12,6 +12,10 @@ func _process(_delta):
 		get_node("Sprite").show()
 
 func _on_Key_body_exited(body):
-	key.search = 0
-	get_node("Sprite").hide()
-	get_node("../../Labels/Search").hide()
+	if key.key_score == 0:
+		key.search = 0
+		get_node("Sprite").hide()
+		get_node("../../Labels/Search").hide()
+	elif key.key_score == 1:
+		get_node("../../Labels/Search").hide()
+		queue_free()

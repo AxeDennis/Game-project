@@ -1,23 +1,24 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Maps/Map01.gd" type="Script" id=1]
 [ext_resource path="res://terrain/Wooden_Floor_Tile.tres" type="TileSet" id=2]
 [ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Functions/Func_Hide.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Functions/Func_Key.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Item_note.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/PNG/objects_house_0035_Layer-36.png" type="Texture" id=7]
-[ext_resource path="res://Assets/PNG/objects_house_0014_Layer-15.png" type="Texture" id=8]
-[ext_resource path="res://Assets/PNG/objects_house_0045_Layer-46.png" type="Texture" id=9]
-[ext_resource path="res://Assets/PNG/objects_house_0057_Layer-58.png" type="Texture" id=10]
-[ext_resource path="res://Assets/PNG/objects_house_0048_Layer-49.png" type="Texture" id=11]
-[ext_resource path="res://Assets/PNG/objects_house_0004_Layer-5.png" type="Texture" id=12]
-[ext_resource path="res://Assets/PNG_version_2/objects_house_0054_Layer-55.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Candle.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Assets/PNG_version_2/objects_house_0058_Layer-59.png" type="Texture" id=15]
-[ext_resource path="res://Maps/Closet.gd" type="Script" id=16]
-[ext_resource path="res://icon.png" type="Texture" id=17]
-[ext_resource path="res://Maps/Door.gd" type="Script" id=18]
+[ext_resource path="res://Characters/Monster.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Functions/Func_Hide.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Functions/Func_Key.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Functions/Func_Door.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Item_note.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/PNG/objects_house_0035_Layer-36.png" type="Texture" id=9]
+[ext_resource path="res://Assets/PNG/objects_house_0014_Layer-15.png" type="Texture" id=10]
+[ext_resource path="res://Assets/PNG/objects_house_0045_Layer-46.png" type="Texture" id=11]
+[ext_resource path="res://Assets/PNG/objects_house_0057_Layer-58.png" type="Texture" id=12]
+[ext_resource path="res://Assets/PNG/objects_house_0048_Layer-49.png" type="Texture" id=13]
+[ext_resource path="res://Assets/PNG/objects_house_0004_Layer-5.png" type="Texture" id=14]
+[ext_resource path="res://Assets/PNG_version_2/objects_house_0054_Layer-55.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Candle.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/PNG_version_2/objects_house_0058_Layer-59.png" type="Texture" id=17]
+[ext_resource path="res://Maps/Closet.gd" type="Script" id=18]
+[ext_resource path="res://icon.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 295.956, 442.909 )
@@ -74,21 +75,28 @@ rotation = 1.5708
 
 [node name="Monsters" type="Node" parent="Characters"]
 
-[node name="Functions" type="Node" parent="."]
+[node name="Monster" parent="Characters/Monsters" instance=ExtResource( 4 )]
 
-[node name="Func_Hide" parent="Functions" instance=ExtResource( 4 )]
+[node name="Functions" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Func_Hide" parent="Functions" instance=ExtResource( 5 )]
 position = Vector2( 975.727, 646.093 )
 
-[node name="Key" parent="Functions" instance=ExtResource( 5 )]
+[node name="Key" parent="Functions" instance=ExtResource( 6 )]
 position = Vector2( 120.13, 527.526 )
+
+[node name="Func_Door" parent="Functions" instance=ExtResource( 7 )]
+position = Vector2( 515.79, 747.369 )
 
 [node name="Objects" type="Node" parent="."]
 
-[node name="Note" parent="Objects" instance=ExtResource( 6 )]
+[node name="Note" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 790.557, 223.096 )
 z_index = 1
 
 [node name="Labels" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="Read" type="Label" parent="Labels"]
 visible = false
@@ -114,6 +122,22 @@ margin_right = 625.418
 margin_bottom = 432.967
 text = "Search (E)"
 
+[node name="Locked" type="Label" parent="Labels"]
+visible = false
+margin_left = 563.755
+margin_top = 420.423
+margin_right = 629.755
+margin_bottom = 434.423
+text = "It's locked"
+
+[node name="Open_door" type="Label" parent="Labels"]
+visible = false
+margin_left = 567.369
+margin_top = 421.053
+margin_right = 635.369
+margin_bottom = 435.053
+text = "Open door"
+
 [node name="Assets" type="Node" parent="."]
 
 [node name="DoubleBed" type="StaticBody2D" parent="Assets"]
@@ -126,7 +150,7 @@ __meta__ = {
 [node name="Bed" type="Sprite" parent="Assets/DoubleBed"]
 position = Vector2( 0.0913696, 0.210358 )
 scale = Vector2( 0.335652, 0.288057 )
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/DoubleBed"]
 position = Vector2( 0.11142, 0.0664673 )
@@ -143,7 +167,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Assets/Chair"]
 position = Vector2( -0.288086, -1.19232 )
 scale = Vector2( 0.525609, 0.474184 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Chair"]
 shape = SubResource( 2 )
@@ -158,7 +182,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Assets/Chair2"]
 position = Vector2( -0.288086, -1.19232 )
 scale = Vector2( 0.525609, 0.474184 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Chair2"]
 shape = SubResource( 2 )
@@ -173,7 +197,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Assets/Chair3"]
 position = Vector2( -0.288086, -1.19232 )
 scale = Vector2( 0.525609, 0.474184 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Chair3"]
 shape = SubResource( 2 )
@@ -188,7 +212,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Assets/Table"]
 position = Vector2( -7.25925, 0.278839 )
 scale = Vector2( 0.135256, 0.442534 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Table"]
 position = Vector2( -7.33058, -2.44348 )
@@ -203,7 +227,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Assets/Plant"]
 position = Vector2( 0.289159, 1.07168 )
 scale = Vector2( 0.271432, 0.256268 )
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Plant"]
 shape = SubResource( 4 )
@@ -217,7 +241,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Assets/Bed_table"]
 position = Vector2( -0.000244141, -0.814499 )
 scale = Vector2( 0.133704, 0.151398 )
-texture = ExtResource( 11 )
+texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Bed_table"]
 position = Vector2( -0.814514, -4.88705 )
@@ -232,7 +256,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Assets/Bed_table2"]
 position = Vector2( -0.000244141, -0.814499 )
 scale = Vector2( 0.133704, 0.151398 )
-texture = ExtResource( 11 )
+texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Bed_table2"]
 position = Vector2( -0.814514, -4.88705 )
@@ -247,7 +271,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Assets/Couch"]
 position = Vector2( 0.00375366, 0.0389404 )
 scale = Vector2( 0.485433, 0.420903 )
-texture = ExtResource( 12 )
+texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Couch"]
 position = Vector2( 0.00012207, 0.0387878 )
@@ -257,10 +281,10 @@ shape = SubResource( 6 )
 position = Vector2( 878.495, 213.441 )
 rotation = -6.09294
 scale = Vector2( 0.389569, 0.363842 )
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 
-[node name="Candle" parent="Assets" instance=ExtResource( 14 )]
-position = Vector2( 827.773, 246.282 )
+[node name="Candle" parent="Assets" instance=ExtResource( 16 )]
+position = Vector2( 830.931, 250.493 )
 scale = Vector2( 0.169456, 0.162954 )
 
 [node name="Drawer" type="StaticBody2D" parent="Assets"]
@@ -274,7 +298,7 @@ __meta__ = {
 position = Vector2( -0.108459, 0.0228271 )
 rotation = -1.5708
 scale = Vector2( 0.720318, 0.779199 )
-texture = ExtResource( 15 )
+texture = ExtResource( 17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Drawer"]
 position = Vector2( 0.106735, -0.513367 )
@@ -282,7 +306,7 @@ shape = SubResource( 7 )
 
 [node name="Closet" type="StaticBody2D" parent="Assets"]
 position = Vector2( 1090.57, 640.583 )
-script = ExtResource( 16 )
+script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -290,29 +314,27 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Assets/Closet"]
 position = Vector2( 0.954742, 0.0527649 )
 scale = Vector2( 1.92257, 3.88174 )
-texture = ExtResource( 17 )
+texture = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Closet"]
 position = Vector2( 0.00012207, 0.713928 )
 shape = SubResource( 8 )
 
-[node name="Door" type="StaticBody2D" parent="."]
+[node name="Door" type="StaticBody2D" parent="Assets"]
 editor/display_folded = true
-position = Vector2( 511.515, 831.33 )
-script = ExtResource( 18 )
+position = Vector2( 510.203, 832.563 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Door"]
+[node name="Sprite" type="Sprite" parent="Assets/Door"]
 position = Vector2( 2.56806, 0 )
 scale = Vector2( 3.99068, 1 )
-texture = ExtResource( 17 )
+texture = ExtResource( 19 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Door"]
 position = Vector2( 2.3717, 0 )
 shape = SubResource( 9 )
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Door"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Assets/Door"]
 occluder = SubResource( 10 )
-
