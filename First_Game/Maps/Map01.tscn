@@ -27,7 +27,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -460, 2030, 0, 0, 0, 0, 370, 2050, -255.076, 9.55618, 255.076, -9.55618, 1320, 2070, 9.55618, 108.058, -9.55618, -108.058, 1540, 1870, 14.7368, 206.315, -14.7368, -206.315, 1540, 1210, 166.315, 2.10526, -166.315, -2.10526, 1270, 1020, 0, 0, 0, 0, 200, 1040, 0, 0, 0, 0, -460, 1170, 11.376, -110.167, -11.376, 110.167, -730, 1330, -15.4327, -120.89, 15.4327, 120.89, -710, 1800, 0, 0, 0, 0, -460, 2030 )
+"points": PoolVector2Array( -42.8688, -40.2966, 42.8688, 40.2966, -460, 2030, 0, 0, 0, 0, 370, 2050, -255.076, 9.55618, 255.076, -9.55618, 1320, 2070, 9.55618, 108.058, -9.55618, -108.058, 1540, 1870, 14.7368, 206.315, -14.7368, -206.315, 1540, 1210, 166.315, 2.10526, -166.315, -2.10526, 1270, 1020, 0, 0, 0, 0, 200, 1040, 0, 0, 0, 0, -460, 1170, 11.376, -110.167, -11.376, 110.167, -730, 1330, -15.4327, -120.89, 15.4327, 120.89, -710, 1800, 0, 0, 0, 0, -460, 2030 )
 }
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -97,6 +97,7 @@ collision/safe_margin = 0.001
 patrol_path = NodePath("../../../Monster_Paths/Path_One")
 
 [node name="Monster_Paths" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Path_One" type="Path2D" parent="Monster_Paths"]
 curve = SubResource( 1 )
@@ -121,6 +122,7 @@ position = Vector2( 790.557, 223.096 )
 z_index = 1
 
 [node name="Labels" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="Read" type="Label" parent="Labels"]
 visible = false
@@ -171,6 +173,7 @@ margin_bottom = 441.7
 text = "You found a key!"
 
 [node name="Assets" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="DoubleBed" type="StaticBody2D" parent="Assets"]
 editor/display_folded = true

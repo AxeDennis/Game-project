@@ -13,8 +13,8 @@ var player = null
 func _ready():
 	if patrol_path:
 		patrol_points = get_node(patrol_path).curve.get_baked_points()
-
-func _physics_process(_delta):
+		#vector2get_closest_point and poolvector2array
+func _physics_process(delta):
 	if state == 0:
 		move_speed = 50
 		var target = patrol_points[patrol_index]
@@ -30,7 +30,6 @@ func _physics_process(_delta):
 		velocity = move_and_slide(velocity)
 		if hide.Hide == 2:
 			state = 0
-
 
 func _on_Detectradius_body_entered(body):
 	if body == get_node("../../Player"):

@@ -1,10 +1,10 @@
 extends "res://Objects/Item Scripts/Item.gd"
 		
-func _on_Note_body_entered(_body):
+func _on_Note_body_entered(body):
 	PlayerBody.BodyInArea = 1
 	get_node("../../Labels/Read").show()
 		
-func _process(_delta):
+func _process(delta):
 		if PlayerBody.BodyInArea == 2:
 			get_node("Sprite2").show()
 			get_node("../../Labels/Read").hide()
@@ -14,6 +14,6 @@ func _process(_delta):
 			get_node("../../Labels/Read").show()
 			PlayerMove.move_speed = 250
 		
-func _on_Note_body_exited(_body):
+func _on_Note_body_exited(body):
 	PlayerBody.BodyInArea = 0
 	get_node("../../Labels/Read").hide()

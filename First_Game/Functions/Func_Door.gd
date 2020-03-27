@@ -7,7 +7,7 @@ func _on_Func_Door_body_entered(body):
 		DoorOpen.door = 1
 		get_node("../../Labels/Open_door").show()
 
-func _process(_delta):
+func _process(delta):
 	if Input.is_action_just_pressed("Interact") and DoorOpen.key_score == 1 and DoorOpen.door == 1:
 		get_node("../../Assets/Door").queue_free()
 		queue_free()

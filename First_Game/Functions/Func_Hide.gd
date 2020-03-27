@@ -8,7 +8,7 @@ func _on_Func_Hide_body_entered(body):
 		PlayerHide.Hide = 1
 		get_node("../../Labels/Hide").show()
 
-func _process(_delta):
+func _process(delta):
 	if Input.is_action_just_pressed("Interact") and PlayerHide.Hide == 1:
 		get_node("../../Characters/Player").hide()
 		get_node("../../Labels/Hide").hide()
