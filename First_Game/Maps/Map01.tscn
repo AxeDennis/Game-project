@@ -25,7 +25,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=23]
 [ext_resource path="res://Assets/PNG_version_2/objects_house_0047_Layer-48.png" type="Texture" id=24]
 
-[sub_resource type="Curve2D" id=12]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -460, 2030, 0, 0, 0, 0, 370, 2050, -255.076, 9.55618, 255.076, -9.55618, 1320, 2070, 9.55618, 108.058, -9.55618, -108.058, 1540, 1870, 14.7368, 206.315, -14.7368, -206.315, 1540, 1210, 166.315, 2.10526, -166.315, -2.10526, 1270, 1020, 0, 0, 0, 0, 200, 1040, 0, 0, 0, 0, -460, 1170, 11.376, -110.167, -11.376, 110.167, -730, 1330, -15.4327, -120.89, 15.4327, 120.89, -710, 1800, 0, 0, 0, 0, -460, 2030 )
 }
@@ -61,7 +61,7 @@ extents = Vector2( 127.242, 31.9084 )
 [sub_resource type="OccluderPolygon2D" id=11]
 polygon = PoolVector2Array( -157.867, -19.223, -157.867, 22.2294, 165.949, 22.2294, 165.949, -19.223 )
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CircleShape2D" id=12]
 radius = 38.1352
 
 [node name="Map01" type="Node2D"]
@@ -99,7 +99,7 @@ patrol_path = NodePath("../../../Monster_Paths/Path_One")
 [node name="Monster_Paths" type="Node" parent="."]
 
 [node name="Path_One" type="Path2D" parent="Monster_Paths"]
-curve = SubResource( 12 )
+curve = SubResource( 1 )
 
 [node name="Functions" type="Node" parent="."]
 editor/display_folded = true
@@ -553,4 +553,4 @@ texture = ExtResource( 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Table_round"]
 position = Vector2( -0.034729, 0.0268555 )
-shape = SubResource( 13 )
+shape = SubResource( 12 )

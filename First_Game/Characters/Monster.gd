@@ -16,7 +16,7 @@ func _ready():
 
 func _physics_process(_delta):
 	if state == 0:
-		move_speed = 100
+		move_speed = 50
 		var target = patrol_points[patrol_index]
 		if position.distance_to(target) <= 1:
         	patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())
