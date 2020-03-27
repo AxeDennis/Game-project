@@ -4,8 +4,9 @@ onready var PlayerHide = get_node("../../Characters/Player")
 onready var PlayerMove = get_node("../../Characters/Player")
 
 func _on_Func_Hide_body_entered(body):
-	PlayerHide.Hide = 1
-	get_node("../../Labels/Hide").show()
+	if body == get_node("../../Characters/Player"):
+		PlayerHide.Hide = 1
+		get_node("../../Labels/Hide").show()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Interact") and PlayerHide.Hide == 1:
@@ -20,5 +21,6 @@ func _process(_delta):
 		PlayerHide.Hide = 1
 
 func _on_Func_Hide_body_exited(body):
-	PlayerHide.Hide = 0
-	get_node("../../Labels/Hide").hide()
+	if body == get_node("../../Characters/Player"):
+		PlayerHide.Hide = 0
+		get_node("../../Labels/Hide").hide()

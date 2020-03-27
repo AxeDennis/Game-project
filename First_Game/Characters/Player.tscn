@@ -65,4 +65,3 @@ offset = Vector2( 37, 0 )
 shadow_enabled = true
 shadow_filter = 5
 shadow_filter_smooth = 16.0
-
