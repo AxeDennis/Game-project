@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Functions/Func_Key.gd" type="Script" id=1]
-[ext_resource path="res://Assets/PNG/OldKey.png" type="Texture" id=2]
-[ext_resource path="res://Lights/spot.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 17.9851
@@ -15,19 +14,9 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
-position = Vector2( 1.7503, -89.2822 )
-rotation = 0.382227
-scale = Vector2( 0.125238, 0.148305 )
-z_index = 1
+position = Vector2( 7.62939e-006, 0.521919 )
+scale = Vector2( 0.747195, 0.673799 )
 texture = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="Light2D" type="Light2D" parent="Sprite"]
-position = Vector2( 49.3864, 5.84943 )
-scale = Vector2( 14.1993, 8.01824 )
-texture = ExtResource( 3 )
-mode = 2
 [connection signal="body_entered" from="." to="." method="_on_Key_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Key_body_exited"]
