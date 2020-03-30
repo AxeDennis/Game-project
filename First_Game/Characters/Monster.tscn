@@ -7,7 +7,7 @@
 radius = 45.2594
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 371.787
+radius = 387.485
 
 [node name="Monster" type="KinematicBody2D"]
 z_index = 1
