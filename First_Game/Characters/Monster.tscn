@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Characters/Monster.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Monster_assets/Monster01.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 45.2594
+radius = 42.054
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 387.485
@@ -18,6 +18,9 @@ z_index = 5
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.693458, -0.451253 )
+rotation = -1.5708
+scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

@@ -27,22 +27,23 @@ func _process(delta: float) -> void:
 		velocity = (target - position).normalized() * move_speed
 		velocity = move_and_slide(velocity)
 	if state == 1:
-		print(path)
 		move_speed = 150
-		var move_distance : int = move_speed * delta
+		var move_distance : int = move_speed / delta
 		move_along_path(move_distance)
 		if hide.Hide == 2:
 			state = 0
 			
 func move_along_path(distance : float) -> void:
+	print(distance)
 	var start_point = position 
 	for i in range(path.size()):
-		var distance_to_next = start_point.distance_to(path[1])
+		var distance_to_next = start_point.distance_to(path[0])
 		if distance <= distance_to_next and distance >= 0.0:
-			position = start_point.linear_interpolate(path[0], distance / distance_to_next)
+			position = start_point.linear_interpolate(path[0], distance * distance_to_next)
 			break
-		elif path.size() == 1 && distance > distance_to_next:
+		elif distance < 0.0:
 			position = path[0]
+			set_process(false)
 			break
 		distance -= distance_to_next
 		start_point = path[0]
