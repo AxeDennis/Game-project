@@ -91,6 +91,11 @@ tile_data = PoolIntArray( -196616, 3, 0, -196615, 2, 0, -196614, 2, 0, -196613, 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 1 )
 
+[node name="Line2D" type="Line2D" parent="."]
+z_index = 5
+default_color = Color( 1, 0.4, 0.4, 1 )
+texture_mode = 808404256
+
 [node name="Characters" type="Node" parent="."]
 
 [node name="Player" parent="Characters" instance=ExtResource( 3 )]
@@ -542,8 +547,3 @@ texture = ExtResource( 24 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Table_round"]
 position = Vector2( -0.034729, 0.0268555 )
 shape = SubResource( 13 )
-
-[node name="Line2D" type="Line2D" parent="."]
-z_index = 5
-default_color = Color( 1, 0.4, 0.4, 1 )
-texture_mode = 808404256

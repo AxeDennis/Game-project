@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var hide = get_node("../../Player")
+onready var test = get_node("../../..")
 
 var state = 0
 var move_speed
@@ -9,7 +10,7 @@ var patrol_points
 var patrol_index = 5
 var velocity = Vector2.ZERO
 var player = null
-var path : = PoolVector2Array() setget set_path
+var path = PoolVector2Array() setget set_path
 
 func _ready():
 	if patrol_path:
@@ -26,23 +27,21 @@ func _process(delta: float) -> void:
 		velocity = (target - position).normalized() * move_speed
 		velocity = move_and_slide(velocity)
 	if state == 1:
-		var move_distance : = move_speed * delta
-		move_along_path(move_distance)
+		print(path)
 		move_speed = 150
-#		player
-#		velocity = position.direction_to(player.position) * move_speed
-#		velocity = move_and_slide(velocity)
+		var move_distance : int = move_speed * delta
+		move_along_path(move_distance)
 		if hide.Hide == 2:
 			state = 0
 			
 func move_along_path(distance : float) -> void:
-	var start_point : = position 
+	var start_point = position 
 	for i in range(path.size()):
-		var distance_to_next : = start_point.distance_to(path[0])
+		var distance_to_next = start_point.distance_to(path[1])
 		if distance <= distance_to_next and distance >= 0.0:
 			position = start_point.linear_interpolate(path[0], distance / distance_to_next)
 			break
-		elif distance < 0.0:
+		elif path.size() == 1 && distance > distance_to_next:
 			position = path[0]
 			break
 		distance -= distance_to_next

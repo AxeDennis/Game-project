@@ -9,3 +9,4 @@ func _process(delta):
 	var new_path : = nav_2d.get_simple_path(monster.global_position, player.global_position)
 	line_2d.points = new_path
 	monster.path = new_path
+	var test = 1
