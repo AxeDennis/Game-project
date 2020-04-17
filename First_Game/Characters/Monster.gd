@@ -26,11 +26,16 @@ func _process(delta: float) -> void:
 			patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())
 			target = patrol_points[patrol_index]
 		velocity = (target - position).normalized() * move_speed
-		velocity = move_and_slide(velocity)
+		move_and_slide(velocity)
 	if state == 1:
 		move_speed = 150
-		var move_distance : int = move_speed * delta
-		move_along_path(move_distance)
+		var target = path[0]
+		if position.distance_to(target) <= 1:
+			target = path[1]
+		velocity = (target - position).normalized() * move_speed
+		move_and_slide(velocity)
+#		var move_distance : int = move_speed * delta
+#		move_along_path(move_distance)
 		if hide.Hide == 2:
 			state = 0
 			
