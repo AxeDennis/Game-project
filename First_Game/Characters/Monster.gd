@@ -17,6 +17,7 @@ func _ready():
 		patrol_points = get_node(patrol_path).curve.get_baked_points()
 		
 func _process(delta: float) -> void:
+	
 	rotation = velocity.angle()
 	if state == 0:
 		move_speed = 50
@@ -28,13 +29,12 @@ func _process(delta: float) -> void:
 		velocity = move_and_slide(velocity)
 	if state == 1:
 		move_speed = 150
-		var move_distance : int = move_speed / delta
+		var move_distance : int = move_speed * delta
 		move_along_path(move_distance)
 		if hide.Hide == 2:
 			state = 0
 			
 func move_along_path(distance : float) -> void:
-	print(distance)
 	var start_point = position 
 	for i in range(path.size()):
 		var distance_to_next = start_point.distance_to(path[0])
