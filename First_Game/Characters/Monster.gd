@@ -30,7 +30,6 @@ func _process(delta: float) -> void:
 		move_and_slide(velocity)
 	if state == 1:
 		move_speed = 150
-		path = player
 		var target = path[0]
 		if position.distance_to(target) <= 1:
 			target = path[1]
