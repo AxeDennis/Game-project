@@ -4,10 +4,10 @@
 [ext_resource path="res://Assets/Monster_assets/Monster01.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 42.054
+radius = 33.9356
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 473.216
+radius = 226.601
 
 [node name="Monster" type="KinematicBody2D"]
 z_index = 1
