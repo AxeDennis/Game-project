@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 onready var hide = get_node("../../Player")
 onready var test = get_node("../../..")
-
 var state = 0
 var move_speed
 export (NodePath) var patrol_path
@@ -22,10 +21,12 @@ func _process(delta: float) -> void:
 	if state == 0:
 		move_speed = 50
 		var target = patrol_points[patrol_index]
+
 		if position.distance_to(target) <= 1:
 			patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())
 			target = patrol_points[patrol_index]
-		velocity = (target - position).normalized() * move_speed
+		test._set_target(target)
+		velocity = (path[1] - position).normalized() * move_speed
 		move_and_slide(velocity)
 	if state == 1:
 		move_speed = 150
