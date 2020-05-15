@@ -60,3 +60,4 @@ func _on_Detectradius_body_exited(body):
 	if body == get_node("../../Player"):
 		state = 0
 		player = null
+		
