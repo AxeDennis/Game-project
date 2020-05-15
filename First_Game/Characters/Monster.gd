@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 		velocity = (path[1] - position).normalized() * move_speed
 		move_and_slide(velocity)
 	if state == 1:
+		test.goal = hide.global_position
 		move_speed = 150
 		var target = path[0]
 		if position.distance_to(target) <= 1:
