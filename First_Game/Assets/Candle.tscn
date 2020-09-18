@@ -32,7 +32,7 @@ scale_curve = SubResource( 4 )
 color = Color( 0.811765, 0.639216, 0.360784, 1 )
 
 [node name="Candle" type="Sprite"]
-position = Vector2( 1.52588e-005, 3.8147e-006 )
+position = Vector2( 1.52588e-05, 3.8147e-06 )
 scale = Vector2( 0.453051, 0.43745 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
@@ -53,5 +53,4 @@ autostart = true
 position = Vector2( -2.20726, 0 )
 amount = 15
 process_material = SubResource( 5 )
-
 [connection signal="timeout" from="Light2D/Light_timer" to="." method="_on_Light_timer_timeout"]

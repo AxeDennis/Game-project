@@ -28,6 +28,6 @@ func _physics_process(delta):
 	global_rotation = atan2(look_vec.y, look_vec.x)
 
 
-func _on_Area2D_body_entered(body):
-	if body == get_node("../Monsters/Monster"):
-		queue_free()
+#func _on_Area2D_body_entered(body):
+#	if body == get_node("../Monsters/Monster"):
+#		pass
